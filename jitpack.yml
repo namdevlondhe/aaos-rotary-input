@@ -1,0 +1,4 @@
+jdk:
+  - openjdk17
+install:
+  - ./gradlew :input-core:publishToMavenLocal :rotary-compose:publishToMavenLocal -x test

@@ -1,0 +1,26 @@
+# Builds on detekt's default rules; only project-specific overrides live here.
+naming:
+  # A Compose file groups a composable with its small style enum (e.g. a composable and its enum).
+  MatchingDeclarationName:
+    active: false
+  FunctionNaming:
+    # Allow PascalCase @Composable functions.
+    ignoreAnnotated: ['Composable']
+  TopLevelPropertyNaming:
+    constantPattern: '[A-Z][A-Za-z0-9_]*'
+
+style:
+  MagicNumber:
+    ignorePropertyDeclaration: true
+    ignoreCompanionObjectPropertyDeclaration: true
+    # Design tokens and demo content are values by nature, not magic numbers.
+    excludes: ['**/test/**', '**/sample/**']
+  UnusedPrivateMember:
+    ignoreAnnotated: ['Preview']
+
+complexity:
+  LongMethod:
+    ignoreAnnotated: ['Composable']
+  LongParameterList:
+    ignoreDefaultParameters: true
+    ignoreAnnotated: ['Composable']
